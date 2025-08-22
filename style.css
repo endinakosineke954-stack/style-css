@@ -1,0 +1,301 @@
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Update CSS reset to include figure and figcaption */
+figure, figcaption {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+/* Mobile Viewports (Default Styles) */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #556b2f; /* Dark Olive Green */
+    color: white;
+    position: sticky; /* Keep it sticky for mobile */
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+nav li {
+    margin-bottom: 0.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* .mobile class to show content on mobile */
+.mobile {
+    display: block;
+}
+
+/* .tablet-desktop class to hide content on mobile */
+.tablet-desktop {
+    display: none;
+}
+
+/* Style rule for the mobile class h3 element */
+.mobile h3 {
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Style the product.html page for a mobile viewport */
+.grid article {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grid article h3 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.grid article figure {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.grid article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.grid article:nth-of-type(2) {
+    background-color: #f0f8f0; /* A light green to reflect the theme */
+}
+
+.grid article ul {
+    margin-left: 1.5rem;
+}
+
+.grid aside {
+    padding: 1.5rem;
+    background-color: #e0f0e0;
+    margin-top: 2rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* --- Tablet Media Query --- */
+@media (min-width: 768px) {
+    /* Show/hide content for tablet viewport */
+    .mobile {
+        display: none;
+    }
+
+    .tablet-desktop {
+        display: block;
+    }
+
+    /* Remove sticky header position */
+    header {
+        position: static;
+    }
+
+    /* Navigation styling */
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0;
+        border-right: 1px solid white;
+    }
+
+    nav li:last-child {
+        border-right: none;
+    }
+
+    /* Main ul styling */
+    main ul {
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+    }
+
+    /* Map styling for tablet */
+    #contact-map iframe {
+        width: 100%;
+        height: 450px;
+    }
+
+    /* Update product page for tablet */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .grid article {
+        margin-bottom: 0;
+    }
+
+    .grid aside {
+        grid-column: 1 / -1; /* Span across all columns */
+        background-image: linear-gradient(to right, #e0f0e0, #f0f8f0);
+    }
+}
+
+/* --- Desktop Viewports --- */
+@media (min-width: 1024px) {
+    /* Header styling for desktop */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    
+    /* Navigation styling */
+    nav {
+        flex-grow: 1;
+        text-align: right;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+    }
+
+    nav li {
+        margin-left: 1rem;
+        border-right: none;
+        border-left: 1px solid white;
+    }
+
+    nav li:first-child {
+        border-left: none;
+    }
+
+    /* Hover pseudo-class for links */
+    nav a:hover {
+        color: #a0c49d;
+        text-decoration: underline;
+    }
+
+    /* Main element styling */
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    /* Main heading styling */
+    main h2, .grid h3 {
+        font-size: 2.5rem;
+    }
+
+    /* Multiple-Column Layout for Desktop Viewport on Home Page */
+    .home-figures {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .home-figures figure {
+        width: 45%;
+    }
+    
+    /* Style new classes on home page (using CSS Grid) */
+    .home-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .home-content {
+        grid-column: 1 / 2;
+    }
+    #mission-statement {
+        grid-column: 2 / 3;
+    }
+    .home-figures {
+        grid-column: 1 / -1;
+    }
+
+    /* Update product page grid for desktop */
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .grid aside {
+        grid-column: 1 / -1;
+    }
+}
+
+/* --- Large Desktop Viewports --- */
+@media (min-width: 1440px) {
+    main {
+        max-width: 1400px;
+    }
+}
+
+/* --- Print Media Query --- */
+@media print {
+    body {
+        font-family: 'Times New Roman', serif;
+        color: #000;
+        background: #fff;
+    }
+
+    nav, footer, .tablet-desktop, .mobile {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
